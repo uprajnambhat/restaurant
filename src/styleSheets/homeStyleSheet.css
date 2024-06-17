@@ -1,0 +1,113 @@
+.homeStyle {
+  margin-top: 10%;
+  display: flex;
+  justify-content: space-between;
+  font-family: inter;
+}
+.circleBackground {
+  width: 440px;
+  height: 390px;
+  background-color: #39db4a;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.mainImgStyle {
+  margin-top: -30%;
+}
+
+.foodDisplayStyle {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -5%;
+}
+.rectangleBackground {
+  width: 210px;
+  height: 80px;
+  background-color: white;
+  border-radius: 10%;
+  display: flex;
+  justify-content: space-between;
+  padding: 2%;
+  box-shadow: 0 0 29px 0 rgba(18, 66, 101, 0.08);
+}
+
+.rectangleBackground > p {
+  font-weight: 600;
+  padding-left: 6px;
+  font-size: 14px;
+  line-height: 20px;
+  padding-bottom: 20px;
+}
+
+.starIconStyleYellow {
+  color: yellow;
+  /* font-size: 3px; */
+}
+
+.starIconStyleWhite {
+  color: grey;
+  /* font-size: 3px; */
+}
+
+.mainHeading {
+  font-weight: 800;
+  font-size: 62px;
+  line-height: 80px;
+}
+.paraStyle {
+  font-weight: 500;
+  margin-top: 9%;
+  font-size: 26px;
+  line-height: 40px;
+  color: #4a4a4a;
+}
+
+.buttonStyle {
+  margin-top: 8%;
+  display: flex;
+  gap: 26px;
+}
+.buttonStyle .orderButton {
+  color: white;
+  background-color: #39db4a;
+  border: 1px solid #39db4a;
+  border-radius: 30px;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.buttonStyle .orderButton:hover {
+  cursor: pointer;
+  color: #39db4a;
+  background-color: white;
+  border: 1px solid white;
+}
+.buttonStyle .videoButton {
+  color: #4d4d4d;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 26px;
+  font-weight: 600;
+  box-shadow: 0 0 29px 0 rgba(18, 66, 101, 0.08);
+}
+
+.buttonStyle .videoButton:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #39db4a;
+  border: 1px solid #39db4a;
+}
