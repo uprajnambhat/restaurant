@@ -55,7 +55,9 @@ const Home = () => {
                       <StarBorderIcon />
                     </span>
                     <br></br>
-                    <span style={{ color: "red", fontSize: "10px" }}>$</span>
+                    <span style={{ color: "#FF7979", fontSize: "10px" }}>
+                      $
+                    </span>
                     18.00
                   </p>
                 </div>
@@ -73,7 +75,9 @@ const Home = () => {
                       <StarBorderIcon />
                     </span>
                     <br></br>
-                    <span style={{ color: "red", fontSize: "10px" }}>$</span>
+                    <span style={{ color: "#FF7979", fontSize: "10px" }}>
+                      $
+                    </span>
                     23.00
                   </p>
                 </div>
