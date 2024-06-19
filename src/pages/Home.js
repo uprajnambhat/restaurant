@@ -13,7 +13,12 @@ import "../styleSheets/homeStyleSheet.css";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import { colors } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
+  const navigate = useNavigate();
+  const onOrderClick = () => {
+    navigate("/Menu");
+  };
   return (
     <Container>
       <Row>
@@ -29,7 +34,9 @@ const Home = () => {
                 Passionate Craftsmanship
               </p>
               <div className="buttonStyle">
-                <Button className="orderButton">Order Now</Button>
+                <Button onClick={onOrderClick} className="orderButton">
+                  Order Now
+                </Button>
                 <Button className="videoButton">
                   Watch Video
                   <PlayCircleOutlineIcon />

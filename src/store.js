@@ -1,8 +1,8 @@
 import { combineReducers, createStore } from "redux";
-import { mainDishReducer } from "./reducers/mainDishReducer";
+import { menuReducers } from "./reducers/menuReducers.js";
 
 const foodItemsReducer = combineReducers({
-  mainDishDetails: mainDishReducer,
+  menuDetails: menuReducers,
 });
 
 const store = createStore(foodItemsReducer);

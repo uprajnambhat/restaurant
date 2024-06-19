@@ -24,15 +24,13 @@ const MainDishes = () => {
         console.log(error);
       });
   }, []);
-  const { mainDishDetails = [] } = useSelector(
-    (state) => state.mainDishDetails
-  );
+  const { mainDishDetails = [] } = useSelector((state) => state.menuDetails);
   console.log("mainDishDetails are:", mainDishDetails);
   return (
     <Container>
       <Row>
         <Col>
-          <div className="mainDishesPageStyle">
+          <div className="menuItemsPageStyle">
             <h5>Main Dishes</h5>
             <Row xs={1} md={2} className="g-4">
               {mainDishDetails.map((eachDish, idx) => {

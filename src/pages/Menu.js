@@ -15,15 +15,31 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Button from "react-bootstrap/esm/Button";
 
 const Menu = () => {
   const navigate = useNavigate();
+  const {
+    mainDishDetails = [],
+    breakFastItems = [],
+    dessertMenu = [],
+  } = useSelector((state) => state.menuDetails);
+
   const onMainDishClick = () => {
     navigate("/Menu/MainDishes");
   };
-  const { mainDishDetails = [] } = useSelector(
-    (state) => state.mainDishDetails
-  );
+
+  const onBreakFastClick = () => {
+    navigate("/Menu/BreakFastItems");
+  };
+
+  const onDessertClick = () => {
+    navigate("/Menu/DessertMenu");
+  };
+
+  const onBrowseAllClick = () => {
+    navigate("/Menu/BrowseAll");
+  };
   return (
     <div>
       <Container>
@@ -47,25 +63,34 @@ const Menu = () => {
                     <p>({mainDishDetails.length} dishes)</p>
                   </div>
                 </div>
-                <div className="menuRectangleBackground">
+                <div
+                  onClick={onBreakFastClick}
+                  className="menuRectangleBackground"
+                >
                   <div className="menuCircleBackground">
                     <img className="ImgStyle" src={sandwich} />
                   </div>
                   <div className="detailsStyle">
                     <h5>Break Fast</h5>
-                    <p>(12 break fast)</p>
+                    <p>({breakFastItems.length} break fast)</p>
                   </div>
                 </div>
-                <div className="menuRectangleBackground">
+                <div
+                  onClick={onDessertClick}
+                  className="menuRectangleBackground"
+                >
                   <div className="menuCircleBackground">
                     <img className="ImgStyle" src={iceCream} />
                   </div>
                   <div className="detailsStyle">
-                    <h5>Desert</h5>
-                    <p>(48 desert)</p>
+                    <h5>Dessert</h5>
+                    <p>({dessertMenu.length} dessert)</p>
                   </div>
                 </div>
-                <div className="menuRectangleBackground">
+                <div
+                  onClick={onBrowseAllClick}
+                  className="menuRectangleBackground"
+                >
                   <div className="menuCircleBackground">
                     <img className="ImgStyle" src={juice} />
                   </div>
@@ -113,6 +138,11 @@ const Menu = () => {
                       </p>
                     </div>
                   </div>
+                  <div className="quantityAndSigns" style={{ padding: "4%" }}>
+                    <Button className="qtyButtonStyle">-</Button>
+                    <p style={{ color: "#39db4a" }}>0</p>
+                    <Button className="qtyButtonStyle">+</Button>
+                  </div>
                 </div>
                 <div className="standoutRectangleBackground">
                   <div className="favouriteDish">
@@ -139,6 +169,11 @@ const Menu = () => {
                       </p>
                     </div>
                   </div>
+                  <div className="quantityAndSigns" style={{ padding: "4%" }}>
+                    <Button className="qtyButtonStyle">-</Button>
+                    <p style={{ color: "#39db4a" }}>0</p>
+                    <Button className="qtyButtonStyle">+</Button>
+                  </div>
                 </div>
                 <div className="standoutRectangleBackground">
                   <div className="favouriteDish">
@@ -164,6 +199,11 @@ const Menu = () => {
                         4.5
                       </p>
                     </div>
+                  </div>
+                  <div className="quantityAndSigns" style={{ padding: "4%" }}>
+                    <Button className="qtyButtonStyle">-</Button>
+                    <p style={{ color: "#39db4a" }}>0</p>
+                    <Button className="qtyButtonStyle">+</Button>
                   </div>
                 </div>
               </div>

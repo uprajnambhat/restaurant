@@ -1,5 +1,5 @@
 .homeStyle {
-  margin-top: 10%;
+  margin-top: 18%;
   display: flex;
   justify-content: space-between;
   font-family: inter;
@@ -43,8 +43,6 @@
   line-height: 20px;
   padding-bottom: 20px;
 }
-
-
 
 .starIconStyleWhite {
   color: grey;

@@ -1,6 +1,6 @@
 .menuDetails {
   font-family: inter;
-  margin-top: 6%;
+  margin-top: 13%;
 }
 
 .menuDetails1 {
@@ -128,7 +128,7 @@
 
 .standoutRectangleBackground {
   width: 380px;
-  height: 410px;
+  height: 500px;
   background-color: white;
   border-radius: 10%;
   box-shadow: 0 0 49px 0 rgba(18, 66, 101, 0.08);

@@ -4,6 +4,13 @@
   display: flex;
   justify-content: space-between;
   font-family: poppins;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  padding: 1% 8%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .logoStyle {

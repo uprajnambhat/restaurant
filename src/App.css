@@ -2,3 +2,32 @@
   color: yellow;
   /* font-size: 3px; */
 }
+
+.menuItemsPageStyle {
+  font-family: inter;
+  margin-top: 4%;
+}
+
+.menuItemsPageStyle h5 {
+  color: #000000;
+  font-weight: 700;
+  font-size: 60px;
+}
+.quantityAndSigns {
+  display: flex;
+  justify-content: space-between;
+  color: #39db4a;
+  font-size: 30px;
+}
+
+.quantityAndSigns .qtyButtonStyle {
+  background-color: #39db4a;
+  border: 1px solid #39db4a;
+  height: 40px;
+}
+
+.quantityAndSigns .qtyButtonStyle:hover {
+  color: #39db4a;
+  background-color: white;
+  border: 1px solid #39db4a;
+}
