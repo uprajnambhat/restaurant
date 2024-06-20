@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/restuarant/static/css/main.45214bcf.css",
+    "main.js": "/restuarant/static/js/main.3431e0e1.js",
+    "static/js/453.97763569.chunk.js": "/restuarant/static/js/453.97763569.chunk.js",
+    "static/media/Intersect.png": "/restuarant/static/media/Intersect.83199ccff2416f5753e1.png",
+    "static/media/Vegetable salad.png": "/restuarant/static/media/Vegetable salad.b5511127efce67d9d8b7.png",
+    "static/media/Egg salad.png": "/restuarant/static/media/Egg salad.58ddf235d1efba4f0962.png",
+    "static/media/Fattoush salad.png": "/restuarant/static/media/Fattoush salad.3457cc46783d12dd5496.png",
+    "static/media/image 13.png": "/restuarant/static/media/image 13.e8a59bce1b0dd2901a1c.png",
+    "static/media/image 14.png": "/restuarant/static/media/image 14.2356cce007a1ec51d875.png",
+    "static/media/pngwing 4.png": "/restuarant/static/media/pngwing 4.fe8c30dcd3e474899a4d.png",
+    "static/media/pngwing 6.png": "/restuarant/static/media/pngwing 6.71c127ef388657bbe097.png",
+    "static/media/pngwing 3.png": "/restuarant/static/media/pngwing 3.f678779dcfb808878b66.png",
+    "static/media/logo.svg": "/restuarant/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/restuarant/index.html",
+    "main.45214bcf.css.map": "/restuarant/static/css/main.45214bcf.css.map",
+    "main.3431e0e1.js.map": "/restuarant/static/js/main.3431e0e1.js.map",
+    "453.97763569.chunk.js.map": "/restuarant/static/js/453.97763569.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.45214bcf.css",
+    "static/js/main.3431e0e1.js"
+  ]
+}
