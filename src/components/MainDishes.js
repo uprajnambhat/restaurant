@@ -10,22 +10,24 @@ import Button from "react-bootstrap/Button";
 
 const MainDishes = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    axios
-      .get("http://localhost:3004/mainDishes")
-      .then((response) => {
-        console.log(response.data.mainDishes);
-        dispatch({
-          type: "UPDATE_MAINDISHES_DETAILS",
-          payload: response.data.mainDishes,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
   const { mainDishDetails = [] } = useSelector((state) => state.menuDetails);
-  console.log("mainDishDetails are:", mainDishDetails);
+
+  useEffect(() => {
+    if (mainDishDetails?.length == 0) {
+      axios
+        .get("http://localhost:3004/mainDishes")
+        .then((response) => {
+          console.log(response.data.mainDishes);
+          dispatch({
+            type: "UPDATE_MAINDISHES_DETAILS",
+            payload: response.data.mainDishes,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, []);
   return (
     <Container>
       <Row>

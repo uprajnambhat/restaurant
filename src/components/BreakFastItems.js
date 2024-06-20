@@ -10,21 +10,23 @@ import Button from "react-bootstrap/esm/Button";
 
 const BreakFastItems = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    axios
-      .get("http://localhost:3004/breakFast/breakFastItems")
-      .then((response) => {
-        console.log("breakfastItems", response.data);
-        dispatch({
-          type: "UPDATE_BREAKFAST_ITEMS",
-          payload: response.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
   const { breakFastItems = [] } = useSelector((state) => state.menuDetails);
+  useEffect(() => {
+    if (breakFastItems?.length == 0) {
+      axios
+        .get("http://localhost:3004/breakFast/breakFastItems")
+        .then((response) => {
+          console.log("breakfastItems", response.data);
+          dispatch({
+            type: "UPDATE_BREAKFAST_ITEMS",
+            payload: response.data,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, []);
 
   return (
     <Container>

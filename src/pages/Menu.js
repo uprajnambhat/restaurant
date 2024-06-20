@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -14,16 +14,67 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "react-bootstrap/esm/Button";
+import axios from "axios";
 
 const Menu = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  useEffect(() => {
+    axios
+      .get("http://localhost:3004/mainDishes")
+      .then((response) => {
+        console.log(response.data.mainDishes);
+        dispatch({
+          type: "UPDATE_MAINDISHES_DETAILS",
+          payload: response.data.mainDishes,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:3004/breakFast/breakFastItems")
+      .then((response) => {
+        console.log("breakfastItems", response.data);
+        dispatch({
+          type: "UPDATE_BREAKFAST_ITEMS",
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:3004/dessert/dessertMenu")
+      .then((response) => {
+        console.log("dessert hooray", response.data);
+        dispatch({
+          type: "UPDATE_DESSERT_MENU",
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("error");
+      });
+  }, []);
+
   const {
     mainDishDetails = [],
     breakFastItems = [],
     dessertMenu = [],
   } = useSelector((state) => state.menuDetails);
+
+  const mainDishTotal = mainDishDetails?.length;
+  const breakFastTotal = breakFastItems?.length;
+  const dessertTotal = dessertMenu?.length;
+  const total =
+    mainDishDetails?.length + breakFastItems?.length + dessertMenu?.length;
 
   const onMainDishClick = () => {
     navigate("/Menu/MainDishes");
@@ -60,7 +111,7 @@ const Menu = () => {
                   </div>
                   <div className="detailsStyle">
                     <h5>Main Dish</h5>
-                    <p>({mainDishDetails.length} dishes)</p>
+                    <p>({mainDishTotal} dishes)</p>
                   </div>
                 </div>
                 <div
@@ -72,7 +123,7 @@ const Menu = () => {
                   </div>
                   <div className="detailsStyle">
                     <h5>Break Fast</h5>
-                    <p>({breakFastItems.length} break fast)</p>
+                    <p>({breakFastTotal} break fast)</p>
                   </div>
                 </div>
                 <div
@@ -84,7 +135,7 @@ const Menu = () => {
                   </div>
                   <div className="detailsStyle">
                     <h5>Dessert</h5>
-                    <p>({dessertMenu.length} dessert)</p>
+                    <p>({dessertTotal} dessert)</p>
                   </div>
                 </div>
                 <div
@@ -96,7 +147,7 @@ const Menu = () => {
                   </div>
                   <div className="detailsStyle">
                     <h5>Browse All</h5>
-                    <p>(255 items)</p>
+                    <p>({total} items)</p>
                   </div>
                 </div>
               </div>

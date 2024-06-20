@@ -9,23 +9,23 @@ import Button from "react-bootstrap/esm/Button";
 
 const Dessert = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    axios
-      .get("http://localhost:3004/dessert/dessertMenu")
-      .then((response) => {
-        console.log("dessert hooray", response.data);
-        dispatch({
-          type: "UPDATE_DESSERT_MENU",
-          payload: response.data,
-        });
-      })
-      .catch((error) => {
-        console.log("error");
-      });
-  }, []);
-
   const { dessertMenu = [] } = useSelector((state) => state.menuDetails);
-
+  useEffect(() => {
+    if (dessertMenu?.length == 0) {
+      axios
+        .get("http://localhost:3004/dessert/dessertMenu")
+        .then((response) => {
+          console.log("dessert hooray", response.data);
+          dispatch({
+            type: "UPDATE_DESSERT_MENU",
+            payload: response.data,
+          });
+        })
+        .catch((error) => {
+          console.log("error");
+        });
+    }
+  }, []);
   return (
     <div>
       <Container>
