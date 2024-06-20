@@ -7,10 +7,19 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import "../styleSheets/mainDishesStyleSheet.css";
 import Button from "react-bootstrap/Button";
+import {
+  eachItemCount,
+  getItem,
+  onAddClick,
+  onSubtractClick,
+  sum,
+} from "../utils";
 
 const MainDishes = () => {
   const dispatch = useDispatch();
-  const { mainDishDetails = [] } = useSelector((state) => state.menuDetails);
+  const { mainDishDetails = [], selectedItems = [] } = useSelector(
+    (state) => state.menuDetails
+  );
 
   useEffect(() => {
     if (mainDishDetails?.length == 0) {
@@ -28,6 +37,22 @@ const MainDishes = () => {
         });
     }
   }, []);
+
+  const onPlusClick = ({ name = "" }) => {
+    console.log("sum of", onAddClick(name, selectedItems));
+    dispatch({
+      type: "UPDATE_SELECTED_ITEMS",
+      payload: onAddClick(name, selectedItems),
+    });
+  };
+
+  const onMinusClick = ({ name = "" }) => {
+    dispatch({
+      type: "UPDATE_SELECTED_ITEMS",
+      payload: onSubtractClick(name, selectedItems),
+    });
+  };
+
   return (
     <Container>
       <Row>
@@ -47,9 +72,23 @@ const MainDishes = () => {
                         </Card.Title>
                         <Card.Text className="cardTextStyle">{price}</Card.Text>
                         <div className="quantityAndSigns">
-                          <Button className="qtyButtonStyle">-</Button>
-                          <p>0</p>
-                          <Button className="qtyButtonStyle">+</Button>
+                          <Button
+                            onClick={() => {
+                              onMinusClick(eachDish);
+                            }}
+                            className="qtyButtonStyle"
+                          >
+                            -
+                          </Button>
+                          <p>{eachItemCount(eachDish.name, selectedItems)}</p>
+                          <Button
+                            onClick={() => {
+                              onPlusClick(eachDish);
+                            }}
+                            className="qtyButtonStyle"
+                          >
+                            +
+                          </Button>
                         </div>
                       </Card.Body>
                     </Card>

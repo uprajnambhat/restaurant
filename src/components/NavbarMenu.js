@@ -5,18 +5,42 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import oodi from "../images/oodi.png";
 import iconSearch from "../images/iconSearch.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styleSheets/navbarMenuStyleSheet.css";
 import SearchIcon from "@mui/icons-material/Search";
-import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
+import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import WifiCalling3Icon from "@mui/icons-material/WifiCalling3";
+import { useSelector } from "react-redux";
 
 const NavbarMenu = () => {
   const [activeItem, setActiveItem] = useState("");
+  const navigate = useNavigate();
+  const {
+    mainDishDetails = [],
+    breakFastItems = [],
+    dessertMenu = [],
+    selectedItems = [],
+  } = useSelector((state) => state.menuDetails);
 
+  const totalCount = () => {
+    let total = 0;
+    selectedItems.forEach(({ count = 0 }) => {
+      total = total + count;
+    });
+    return total;
+  };
   const handleNavClick = (item) => {
     setActiveItem(item);
   };
+
+  const onCartClick = () => {
+    if (totalCount() > 0) {
+      navigate("/CartItems");
+    } else {
+      alert("Add items to proceed");
+    }
+  };
+
   return (
     <div>
       <Container>
@@ -69,7 +93,11 @@ const NavbarMenu = () => {
               </div>
               <div className="otherDetails">
                 <SearchIcon className="icon" />
-                <WorkOutlineIcon className="icon" />
+                <div onClick={onCartClick} className="shoppingIcon">
+                  <ShoppingCartCheckoutIcon />
+                  {totalCount()}
+                </div>
+
                 <Button className="buttonStyle">
                   <WifiCalling3Icon />
                   Contact

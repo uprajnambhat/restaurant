@@ -2,6 +2,7 @@ const initialState = {
   mainDishDetails: [],
   breakFastItems: [],
   dessertMenu: [],
+  selectedItems: [],
 };
 
 export const menuReducers = (state = initialState, action) => {
@@ -20,6 +21,11 @@ export const menuReducers = (state = initialState, action) => {
       return {
         ...state,
         dessertMenu: action.payload,
+      };
+    case "UPDATE_SELECTED_ITEMS":
+      return {
+        ...state,
+        selectedItems: action.payload,
       };
     default:
       return state;
